@@ -5,4 +5,6 @@ function ehMaior(data1 = new Date(), dataAgora = new Date()) {
     } else {
         return data1;
     }
+
+    
 }
