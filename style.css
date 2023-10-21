@@ -1,0 +1,40 @@
+*{
+    box-sizing: border-box;
+}
+
+body, html {
+    background-color: rgb(200, 200, 224);
+    margin-left: 10px;
+}
+
+/* .navbar {
+    background-color: rgb(71, 71, 83);
+    
+
+} */
+
+
+h1, h3 {
+    text-align: center;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+
+table, td, th {
+    border: 1px solid black;
+    text-align: center;
+    
+}
+
+th {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.mapa, .oculto, .porAnosMesesEDias, .porPeriodoEntreDatas {
+    display: none;
+
+}

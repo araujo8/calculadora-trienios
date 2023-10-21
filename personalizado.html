@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Calculadora de Triênios</title>
+</head>
+<body>
+    <a href="/index.html"><h1>Calculadora de Triênios</h1></a>
+    <nav>
+        <a href="/mts_simples.html">MTS Simples ||</a>
+        <a href="/mts_averbacao.html"> MTS com Averbação ||</a>
+        <a href="/mts_licenciamento.html">MTS com Licenciamento ||</a>
+        <a href="/mts_averbacao_licenciamento.html">MTS com Averbação e Licenciamento ||</a>
+        <a href="/personalizado.html">Personalizado</a>
+    </nav>
+
+    <h3>MTS Personalizado</h3>
+
+    <!--Averbações-->
+    <label for="">Total de Averbações:</label>
+    <select name="averb" id="">
+        <option value="">1</option>
+        <option value="">2</option>
+        <option value="">3</option>
+    </select>
+    <br><br><br>
+
+    <!--Licenciamentos-->
+    <label for="">Total de Licenciamentos:</label>
+    <select name="licencia" id="">
+        <option value="">1</option>
+        <option value="">2</option>
+        <option value="">3</option>
+    </select>
+    <br><br><br>
+
+    <!--Botão Gerar-->
+    <button type="submit">Gerar</button>
+    <br><br><br>
+
+    ____________________________________________________
+    
+                        <!--AVERBAÇÃO 1-->
+
+    <h4>1º Averbação:</h4>
+
+        <!--Por dias-->
+        <input type="radio" name="tipo-averbacao" id="" checked>
+        <label for="">Por total de dias</label><br><br>
+        <input type="number" name="" placeholder="Ex.: 1095"><br><br><br><br>
+
+        <!--Por anos, meses e dias-->
+        <input type="radio" name="tipo-averbacao" id="">
+        <label for="">Por anos, meses e dias</label><br><br>
+        <table border="1px solid">
+            <tr>
+                <td><input type="number" placeholder="Anos"></td>
+            </tr>
+            <tr>
+                <td><input type="number" placeholder="Meses"></td>
+            </tr>
+            <tr>
+                <td><input type="number" placeholder="Dias"></td>
+            </tr>
+        </table><br><br><br><br>
+
+        <!--Por período entre datas-->
+        <input type="radio" name="tipo-averbacao" id="">
+        <label for="">Por período entre datas</label><br><br>
+            <label for="dataini">Data Inicial:</label>
+            <input type="date" name="" id=""><br><br>
+          
+            <label for="datafim">Data Final:</label>
+            <input type="date" name="" id=""><br><br><br><br>
+
+    ____________________________________________________
+
+                            <!--AVERBAÇÃO 2-->
+
+    <h4>2º Averbação:</h4>
+
+        <!--Por dias-->
+        <input type="radio" name="tipo-averbacao2" id="" checked>
+        <label for="">Por total de dias</label><br><br>
+        <input type="number" name="" placeholder="Ex.: 1095"><br><br><br><br>
+
+        <!--Por anos, meses e dias-->
+        <input type="radio" name="tipo-averbacao2" id="">
+        <label for="">Por anos, meses e dias</label><br><br>
+        <table border="1px solid">
+            <tr>
+                <td><input type="number" placeholder="Anos"></td>
+            </tr>
+            <tr>
+                <td><input type="number" placeholder="Meses"></td>
+            </tr>
+            <tr>
+                <td><input type="number" placeholder="Dias"></td>
+            </tr>
+        </table><br><br><br><br>
+
+        <!--Por período entre datas-->
+        <input type="radio" name="tipo-averbacao2" id="">
+        <label for="">Por período entre datas</label><br><br>
+            <label for="dataini">Data Inicial:</label>
+            <input type="date" name="" id=""><br><br>
+            
+            <label for="datafim">Data Final:</label>
+            <input type="date" name="" id=""><br><br><br><br>
+    
+
+            ____________________________________________________
+
+            <!--AVERBAÇÃO 3-->
+
+    <h4>3º Averbação:</h4>
+
+        <!--Por dias-->
+        <input type="radio" name="tipo-averbacao3" id="" checked>
+        <label for="">Por total de dias</label><br><br>
+        <input type="number" name="" placeholder="Ex.: 1095"><br><br><br><br>
+
+        <!--Por anos, meses e dias-->
+        <input type="radio" name="tipo-averbacao3" id="">
+        <label for="">Por anos, meses e dias</label><br><br>
+        <table border="1px solid">
+        <tr>
+        <td><input type="number" placeholder="Anos"></td>
+        </tr>
+        <tr>
+        <td><input type="number" placeholder="Meses"></td>
+        </tr>
+        <tr>
+        <td><input type="number" placeholder="Dias"></td>
+        </tr>
+        </table><br><br><br><br>
+
+        <!--Por período entre datas-->
+        <input type="radio" name="tipo-averbacao3" id="">
+        <label for="">Por período entre datas</label><br><br>
+        <label for="dataini">Data Inicial:</label>
+        <input type="date" name="" id=""><br><br>
+
+        <label for="datafim">Data Final:</label>
+        <input type="date" name="" id=""><br><br><br><br>
+
+
+   ________________________________________________________________________________________________________     
+   ________________________________________________________________________________________________________     
+
+        <br><br><br>
+                        <!--LICENCIAMENTO 1-->
+
+        <h4>1º Período de Licenciamento:</h4>
+
+            <label for="dataini">Data Inicial:</label>
+            <input type="date" name="dataini"><br><br>
+
+            <label for="datafim">Data Final:</label>
+            <input type="date" name="datafim" id=""><br><br><br><br>
+
+            ____________________________________________________
+
+         
+                        <!--LICENCIAMENTO 2-->
+        
+        <h4>2º Período de Licenciamento:</h4>
+
+            <label for="dataini">Data Inicial:</label>
+            <input type="date" name="dataini"><br><br>
+
+            <label for="datafim">Data Final:</label>
+            <input type="date" name="datafim" id=""><br><br><br><br>
+
+
+            ____________________________________________________
+
+         
+                        <!--LICENCIAMENTO 3-->
+        
+        <h4>3º Período de Licenciamento:</h4>
+
+            <label for="dataini">Data Inicial:</label>
+            <input type="date" name="dataini"><br><br>
+
+            <label for="datafim">Data Final:</label>
+            <input type="date" name="datafim" id=""><br><br><br><br>
+
+
+
+        
+    
+
+</body>    
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Calculadora de Triênios</title>
+</head>
+<body>
+      <!--<div class="navbar">-->
+        <a href="/index.html"><h1>Calculadora de Triênios</h1></a>
+        <nav>
+            <a href="/mts_simples.html">MTS Simples ||</a>
+            <a href="/mts_averbacao.html"> MTS com Averbação ||</a>
+            <a href="/mts_licenciamento.html">MTS com Licenciamento ||</a>
+            <a href="/mts_averbacao_licenciamento.html">MTS com Averbação e Licenciamento ||</a>
+            <a href="/personalizado.html">Personalizado</a>
+        </nav>
+    <!--</div>-->
+
+    <h3>MTS com Averbação e Licenciamento</h3>
+        Data de Incorporação: <input type="date" name="incorporacao" id=""><br><br><br>
+
+        <h4>Dados da Averbação:</h4>
+
+        <input type="radio" name="tipo-averbacao" id="" checked>
+        <label for="">Por total de dias</label><br><br>
+        <input type="number" name="" placeholder="Ex.: 1095"><br><br><br><br>
+
+        <input type="radio" name="tipo-averbacao" id="">
+        <label for="">Por anos, meses e dias</label><br><br>
+        <table border="1px solid">
+            <tr>
+                <td aria-placeholder="Anos"><input type="number" placeholder="Anos"></td>
+            </tr>
+            <tr>
+                <td><input type="number" placeholder="Meses"></td>
+            </tr>
+            <tr>
+                <td><input type="number" placeholder="Dias"></td>
+            </tr>
+        </table><br><br><br><br>
+
+        
+        <input type="radio" name="tipo-averbacao" id="">
+        <label for="">Por período entre datas</label><br><br>
+            <label for="dataini">Data Inicial:</label>
+            <input type="date" name="" id=""><br><br>
+          
+            <label for="datafim">Data Final:</label>
+            <input type="date" name="" id=""><br><br><br><br>
+
+
+        <!-- Licenciamento -->    
+            <h4>Período de Licenciamento:</h4>
+
+            <label for="dataini">Data Inicial:</label>
+            <input type="date" name="dataini"><br><br>
+
+            <label for="datafim">Data Final:</label>
+            <input type="date" name="datafim" id=""><br><br><br><br>    
+            
+
+
+        <!--Base de Cálculo-->
+        <label for=""><b>Base de cálculo:</b></label>
+        <input type="radio" name="base2" id="" checked>365 dias
+        <input type="radio" name="base2" id="">366 dias <br><br>
+
+        <!--Botão-->
+        <button type="submit">Contar</button>
+
+</body>
+</html>

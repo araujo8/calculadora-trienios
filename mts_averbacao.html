@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="app.js" defer></script> -->
+    <script src="funcao.js"></script>
+    <script defer src="averbacao.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>MTS com Averbação</title>
+</head>
+<body>
+    <!--<div class="navbar">-->
+        <a href="/index.html"><h1>Calculadora de Triênios</h1></a>
+        <nav>
+            <a href="/mts_simples.html">MTS Simples ||</a>
+            <a href="/mts_averbacao.html"> MTS com Averbação ||</a>
+            <a href="/mts_licenciamento.html">MTS com Licenciamento ||</a>
+            <a href="/mts_averbacao_licenciamento.html">MTS com Averbação e Licenciamento ||</a>
+            <a href="/personalizado.html">Personalizado</a>
+        </nav>
+    <!--</div>-->
+
+    <h3>MTS com Averbação</h3>
+        <br>
+        Data de Incorporação: <input type="date" name="incorporacao" id="data"><br><br>
+
+        <h4>Dados da Averbação:</h4>
+    
+    <!--POR TOTAL DE DIAS-->
+
+        
+            <input type="radio" name="tipoAverbacao" value="porTotalDeDias" checked>
+            <label for="">Por total de dias</label><br><br>
+        <div class="porTotalDeDias">
+            <input type="number" name="" placeholder="Ex.: 1095" id="diasInseridos"><br><br>
+        </div>
+
+    <!--POR ANOS, MESES E DIAS -->
+
+            <input type="radio" name="tipoAverbacao" value="porAnosMesesEDias">
+            <label for="">Por anos, meses e dias</label><br><br>
+        <div class="porAnosMesesEDias">
+            <table border="1px solid">
+                <tr>
+                    <td><input type="number" placeholder="Anos"></td>
+                </tr>
+                <tr>
+                    <td><input type="number" placeholder="Meses"></td>
+                </tr>
+                <tr>
+                    <td><input type="number" placeholder="Dias"></td>
+                </tr>
+            </table><br>
+        </div>
+
+    <!--POR PERÍODO ENTRE DATAS-->
+
+            <input type="radio" name="tipoAverbacao" value="porPeriodoEntreDatas">
+            <label for="">Por período entre datas</label><br><br>
+            <div class="porPeriodoEntreDatas">     
+                <label for="dataini">Data Inicial:</label>
+                <input type="date" name="" id=""><br><br>
+            
+                <label for="datafim">Data Final:</label>
+                <input type="date" name="" id=""><br><br>
+            </div>
+            <br>    
+
+    <!--BASE DE CÁLCULO + BOTÃO -->
+        
+        <label for=""><b>Base de cálculo:</b></label>
+        <input type="radio" name="base2" id="" checked>365 dias
+        <input type="radio" name="base2" id="">366 dias <br><br><br>
+
+        <button type="submit" id="enviar">Contar</button>
+
+
+        <!-- MAPA DE TEMPO DE SERVIÇO-->
+
+    <div class="mapa oculto">
+        <table>
+            <tr>
+                <h3>Mapa de Tempo de Serviço</h4>
+            </tr>
+            <tr>
+                <th>Data</th>
+                <th>Percentual</th>
+            </tr>
+            <tr id="linha10">
+                <td id="perc10"></td>                
+                <td>10%</td>
+            </tr>
+            <tr id="linha15">
+                <td id="perc15"></td>
+                <td>15%</td>
+            </tr>
+            <tr id="linha20">
+                <td id="perc20"></td>
+                <td>20%</td>
+            </tr>
+            <tr id="linha25">
+                <td id="perc25"></td>
+                <td>25%</td>
+            </tr>
+            <tr id="linha30">
+                <td id="perc30"></td>
+                <td>30%</td>
+            </tr>
+            <tr id="linha35">
+                <td id="perc35"></td>
+                <td>35%</td>
+            </tr>
+            <tr id="linha40">
+                <td id="perc40"></td>
+                <td>40%</td>
+            </tr>
+            <tr id="linha45">
+                <td id="perc45"></td>
+                <td>45%</td>
+            </tr>
+            <tr id="linha50">
+                <td id="perc50"></td>
+                <td>50%</td>
+            </tr>
+            <tr id="linha55">
+                <td id="perc55"></td>
+                <td>55%</td>
+            </tr>
+            <tr id="linha60">
+                <td id="perc60"></td>
+                <td>60%</td>
+            </tr>
+
+        </table>
+
+
+
+    </div>
+
+    
+</body>
+</html>
