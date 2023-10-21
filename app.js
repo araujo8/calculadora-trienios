@@ -13,7 +13,7 @@ btn.addEventListener("click", function(e) {
 
     let dataAtual = new Date(); //Pega a data atual.
 
-    if(mapa.style.display =bn  "none") { 
+    if(mapa.style.display = "none") { 
         mapa.style.display = "block"; //Deixa o mapa invisível.
     } 
 
