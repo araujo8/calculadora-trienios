@@ -4,8 +4,10 @@ let mapa = document.querySelector(".mapa");
 btn.addEventListener("click", function(e) {
     e.preventDefault();
 
+//Pega o input da data inserida.
     let data = document.querySelector("#data");
 
+//Transforma o valor em um objeto Date.
     let dataIncorp = new Date(data.value);
 
     let dataAtual = new Date();
@@ -14,43 +16,9 @@ btn.addEventListener("click", function(e) {
         mapa.style.display = "block";
     }
 
-})
 
 
-
-//AVERBAÇÃO - POR TOTAL DE DIAS
-
-let totalDias = 10;
-
-let ingresso = new Date(1994, 9, 10);
-
-console.log(`Data de incorporação: ${ingresso}`);
-
-let result = new Date();
-
-result.setDate(ingresso.getDate() + totalDias);
-
-console.log(`Com averbação: ${result}`);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//DEFINE O TIPO DE AVERBAÇÃO 
+                //OCULTAR AS AVERBAÇÕES NÃO SELECIONADAS  
 
 let tipoAverbacao = document.querySelectorAll("input[name='tipoAverbacao']");
 let estiloPorTotalDeDias = document.querySelector(".porTotalDeDias");
@@ -84,14 +52,47 @@ selecionaAverbacao();
 //________________________________________________________________
 
 
-//DEFINE PERCENTUAL INICIAL COMPUTANDO A AVERBAÇÃO
 
-let dataIncorporacao = new Date(2000, 0, 1);
-let formataData = dataIncorporacao.toLocaleDateString();
+                    //VARIÁVEIS DOS TIPOS DE AVERBAÇÃO
 
-console.log(formataData);
+let totalDias = null;
+let anosMesesEDias = null;
+let periodoEntreDatas = null;
+let cloneIncorp = new Date(dataIncorp.valueOf());
+//let formataData = cloneIncorp.toLocaleDateString();
 
-let diasAverbacao = 1794;
+
+                        //POR TOTAL DE DIAS
+
+totalDias = document.querySelector("#diasInseridos");
+
+
+cloneIncorp.setDate(cloneIncorp.getDate() + parseInt(totalDias.value) + 1);
+
+//console.log(`Com averbação: ${cloneIncorp}`);
+
+//let somaAverbacoes = totalDias + anosMesesEDias + periodoEntreDatas;
+
+
+            //DEFINE PERCENTUAL INICIAL COMPUTANDO A AVERBAÇÃO
+
+ let dataIncorporacao = new Date(1992, 8, 5);
+ //let formataData = dataIncorporacao.toLocaleDateString();
+
+ //console.log(dataIncorporacao);
+let diasAverbacao = null;
+
+
+if(totalDias != null) {
+    diasAverbacao = totalDias.value;
+ } else if(anosMesesEDias != null) {
+    diasAverbacao = anosMesesEDias.value;
+} else if(periodoEntreDatas != null){
+    diasAverbacao = periodoEntreDatas.value;
+} else {
+    console.log("Preencha alguma averbação!");
+}
+
 let percentualInicial;
 
 if(diasAverbacao >= 1095*11){
@@ -120,20 +121,22 @@ if(diasAverbacao >= 1095*11){
     percentualInicial = '0%';
 }
 
-console.log(percentualInicial);
+//console.log(`O percentual inicial será: ${percentualInicial}`);
 
 
 //___________________________________________________________________
 
 
-//DEFINE DATAS DO MTS CONSIDERANDO OS DIAS AVERBADOS
+        //DEFINE DATAS DO MTS CONSIDERANDO OS DIAS AVERBADOS
 
 let soma;
 let resultado;
 
 switch(percentualInicial) {
     case '0%':
-        soma = dataIncorporacao.setDate(dataIncorporacao.getDate() + 1095 - diasAverbacao);
+        //soma = dataIncorporacao.setDate(dataIncorporacao.getDate() + 1095 - diasAverbacao);
+
+        soma = cloneIncorp.setDate(cloneIncorp.getDate() + 1095 - parseInt(diasAverbacao));
 
         resultado = new Date(soma).toLocaleDateString();
         
@@ -144,7 +147,7 @@ switch(percentualInicial) {
 
         resultado = new Date(soma).toLocaleDateString();
 
-        console.log(resultado);
+        //console.log(resultado);
         break;
     case '15%':
         soma = dataIncorporacao.setDate(dataIncorporacao.getDate() + (1095*3) - diasAverbacao);
@@ -215,3 +218,5 @@ switch(percentualInicial) {
 
 
 }
+
+})
