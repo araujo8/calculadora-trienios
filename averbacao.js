@@ -58,28 +58,15 @@ selecionaAverbacao();
 let totalDias = null;
 let anosMesesEDias = null;
 let periodoEntreDatas = null;
-let cloneIncorp = new Date(dataIncorp.valueOf());
-//let formataData = cloneIncorp.toLocaleDateString();
 
 
                         //POR TOTAL DE DIAS
 
 totalDias = document.querySelector("#diasInseridos");
 
+            
+         //ARMAZENA O TIPO DE AVERBACAO SELECIONADO EM UMA VARIÁVEL
 
-cloneIncorp.setDate(cloneIncorp.getDate() + parseInt(totalDias.value) + 1);
-
-//console.log(`Com averbação: ${cloneIncorp}`);
-
-//let somaAverbacoes = totalDias + anosMesesEDias + periodoEntreDatas;
-
-
-            //DEFINE PERCENTUAL INICIAL COMPUTANDO A AVERBAÇÃO
-
- let dataIncorporacao = new Date(1992, 8, 5);
- //let formataData = dataIncorporacao.toLocaleDateString();
-
- //console.log(dataIncorporacao);
 let diasAverbacao = null;
 
 
@@ -93,64 +80,86 @@ if(totalDias != null) {
     console.log("Preencha alguma averbação!");
 }
 
-let percentualInicial;
 
-if(diasAverbacao >= 1095*11){
-    percentualInicial = '60%';
-}else if(diasAverbacao >= 1095*10){
-    percentualInicial = '55%';
-}else if(diasAverbacao >= 1095*9){
-    percentualInicial = '50%';
-}else if(diasAverbacao >= 1095*8){
-    percentualInicial = '45%';
-}else if(diasAverbacao >= 1095*7){
-    percentualInicial = '40%';
-}else if(diasAverbacao >= 1095*6){
-    percentualInicial = '35%';
-}else if(diasAverbacao >= 1095*5){
-    percentualInicial = '30%';
-}else if(diasAverbacao >= 1095*4){
-    percentualInicial = '25%';
-}else if(diasAverbacao >= 1095*3){
-    percentualInicial = '20%';
-}else if(diasAverbacao >= 1095*2){
-    percentualInicial = '15%';
-}else if(diasAverbacao >= 1095){
-    percentualInicial = '10%';
-}else{
-    percentualInicial = '0%';
+            //DEFINE PERCENTUAL INICIAL CONSIDERANDO A AVERBAÇÃO
+
+ //let dataIncorporacao = new Date(1992, 8, 5);
+ //let formataData = dataIncorporacao.toLocaleDateString();
+
+let percentualInicial = 60;
+
+let cont = 0;
+for(var faixaPercentual = 12045; faixaPercentual > diasAverbacao; faixaPercentual-=1095){   
+     
+    percentualInicial-=5;
+    if(percentualInicial < 10) {percentualInicial = 0;}
+    cont++
 }
 
-//console.log(`O percentual inicial será: ${percentualInicial}`);
+let numTrienio = 11 - cont;
+
+// if(diasAverbacao >= 1095*11){
+//     percentualInicial = '60%';
+// }else if(diasAverbacao >= 1095*10){
+//     percentualInicial = '55%';
+// }else if(diasAverbacao >= 1095*9){
+//     percentualInicial = '50%';
+// }else if(diasAverbacao >= 1095*8){
+//     percentualInicial = '45%';
+// }else if(diasAverbacao >= 1095*7){
+//     percentualInicial = '40%';
+// }else if(diasAverbacao >= 1095*6){
+//     percentualInicial = '35%';
+// }else if(diasAverbacao >= 1095*5){
+//     percentualInicial = '30%';
+// }else if(diasAverbacao >= 1095*4){
+//     percentualInicial = '25%';
+// }else if(diasAverbacao >= 1095*3){
+//     percentualInicial = '20%';
+// }else if(diasAverbacao >= 1095*2){
+//     percentualInicial = '15%';
+// }else if(diasAverbacao >= 1095){
+//     percentualInicial = '10%';
+// }else{
+//     percentualInicial = '0%';
+// }
+
+// //console.log(`O percentual inicial será: ${percentualInicial}`);
 
 
 //___________________________________________________________________
 
 
-        //DEFINE DATAS DO MTS CONSIDERANDO OS DIAS AVERBADOS
+                /*DEFINE DATAS DO MTS CONSIDERANDO O 
+                PERCENTUAL INICIAL E OS DIAS AVERBADOS*/
+
+//Clone da Data de Incorporação, para não alterar a original
+let cloneIncorp = new Date(dataIncorp.valueOf());
 
 let soma;
 let resultado;
 
+let primeiroPercentual
+
 switch(percentualInicial) {
-    case '0%':
-        //soma = dataIncorporacao.setDate(dataIncorporacao.getDate() + 1095 - diasAverbacao);
+    case '0%':       
+        //soma = cloneIncorp.setDate(cloneIncorp.getDate() + (1095 + 1) - diasAverbacao);
+        primeiroPercentual = cloneIncorp.setDate(cloneIncorp.getDate() + (1095 + 1) - diasAverbacao);
 
-        soma = cloneIncorp.setDate(cloneIncorp.getDate() + 1095 - parseInt(diasAverbacao));
-
-        resultado = new Date(soma).toLocaleDateString();
+        // resultado = new Date(soma).toLocaleDateString();
         
-        console.log(resultado);
+        // console.log(resultado);
         break;
     case '10%':
-        soma = dataIncorporacao.setDate(dataIncorporacao.getDate() + (1095*2) - diasAverbacao);
+        soma = cloneIncorp.setDate(cloneIncorp.getDate() + ((1095*2)+1) - diasAverbacao);
 
         resultado = new Date(soma).toLocaleDateString();
 
-        //console.log(resultado);
+        console.log(resultado);
         break;
     case '15%':
-        soma = dataIncorporacao.setDate(dataIncorporacao.getDate() + (1095*3) - diasAverbacao);
+        soma = cloneIncorp.setDate(cloneIncorp.getDate() + ((1095*3)+1) - diasAverbacao);
+
 
         resultado = new Date(soma).toLocaleDateString();
 
@@ -220,3 +229,5 @@ switch(percentualInicial) {
 }
 
 })
+
+
