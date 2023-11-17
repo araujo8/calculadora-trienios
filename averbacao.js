@@ -7,9 +7,15 @@ btn.addEventListener("click", function(e) {
 //Pega o input da data inserida.
     let data = document.querySelector("#data");
 
-//Transforma o valor em um objeto Date.
-    let dataIncorp = new Date(data.value);
+    
 
+//Transforma o valor em um objeto Date.
+    const dataIncorp = new Date(data.value);
+
+    const timeZoneOffSet = dataIncorp.getTimezoneOffset();
+
+    dataIncorp.setMinutes(dataIncorp.getMinutes() + timeZoneOffSet);
+  
     let dataAtual = new Date();
 
     if(mapa.style.display = "none") {
@@ -106,7 +112,7 @@ let numTrienios = 11 - cont;
 
 let cloneIncorp = new Date(dataIncorp.valueOf());
 
-let calculoDataReferencial = cloneIncorp.setDate(cloneIncorp.getDate() + (1095+1)*(numTrienios+1) - diasAverbacao); 
+let calculoDataReferencial = cloneIncorp.setDate(cloneIncorp.getDate() + 1095*(numTrienios+1) - diasAverbacao); 
 
 let dataReferencial = new Date(calculoDataReferencial);
 
