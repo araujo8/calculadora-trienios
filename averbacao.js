@@ -1,5 +1,5 @@
 const btn = document.querySelector("#enviar");
-let mapa = document.querySelector(".mapa");
+let displayMapa = document.querySelector(".mapa");
 
 btn.addEventListener("click", function(e) {
     e.preventDefault();
@@ -18,8 +18,8 @@ btn.addEventListener("click", function(e) {
   
     let dataAtual = new Date();
 
-    if(mapa.style.display = "none") {
-        mapa.style.display = "block";
+    if(displayMapa.style.display = "none") {
+        displayMapa.style.display = "block";
     }
 
 
@@ -109,6 +109,8 @@ let numTrienios = 11 - cont;
                 /*DEFINE DATAS DO MTS CONSIDERANDO O 
                 PERCENTUAL INICIAL E OS DIAS AVERBADOS*/
 
+let mapaDatas = [];  
+let mapaPercentuais = [];              
 
 let cloneIncorp = new Date(dataIncorp.valueOf());
 
@@ -116,26 +118,65 @@ let calculoDataReferencial = cloneIncorp.setDate(cloneIncorp.getDate() + 1095*(n
 
 let dataReferencial = new Date(calculoDataReferencial);
 
+
 if(percentualInicial == 0){
-    console.log(`${percentualInicial + 10}: ${dataReferencial.toLocaleDateString()}`);
+    mapaDatas.push(dataReferencial.toLocaleDateString().valueOf());
 
     for(var percentual = percentualInicial + 15; percentual <= 60; percentual+= 5) {
         dataReferencial.setDate(dataReferencial.getDate() + 1095);
-        console.log(`${percentual}: ${dataReferencial.toLocaleDateString()}`);
+        var dataFormatada = dataReferencial.toLocaleDateString();
+        mapaDatas.push(dataFormatada.valueOf());
     }
 } else {
-    console.log(`${percentualInicial}: ${dataIncorp.toLocaleDateString()}`);
-    console.log(`${percentualInicial + 5}: ${dataReferencial.toLocaleDateString()}`);
+
+    mapaDatas.push(dataIncorp.toLocaleDateString(), dataReferencial.toLocaleDateString());
+    mapaPercentuais.push(percentualInicial, (percentualInicial+5));
 
     for(var percentual = percentualInicial + 10; percentual <= 60; percentual+= 5) {
         dataReferencial.setDate(dataReferencial.getDate() + 1095);
-        console.log(`${percentual}: ${dataReferencial.toLocaleDateString()}`);
+        mapaDatas.push(dataReferencial.toLocaleDateString());
+        mapaPercentuais.push(percentual);
     }
 }
 
 
+console.log(mapaDatas);
+
+console.log(mapaPercentuais);
+
+                            /*INSERE DATAS NO MAPA*/
+
+let td = document.querySelector("td");
+
+document.querySelector("#data1").innerHTML = mapaDatas[0];
+document.querySelector("#data2").innerHTML = mapaDatas[1];
+document.querySelector("#data3").innerHTML = mapaDatas[2];
+document.querySelector("#data4").innerHTML = mapaDatas[3];
+document.querySelector("#data5").innerHTML = mapaDatas[4];
+document.querySelector("#data6").innerHTML = mapaDatas[5];
+document.querySelector("#data7").innerHTML = mapaDatas[6];
+document.querySelector("#data8").innerHTML = mapaDatas[7];
+document.querySelector("#data9").innerHTML = mapaDatas[8];
+document.querySelector("#data10").innerHTML = mapaDatas[9];
+document.querySelector("#data11").innerHTML = mapaDatas[10];
 
 
+                        /*INSERE PERCENTUAIS NO MAPA*/
+
+document.querySelector("#perc1").innerHTML = mapaPercentuais[0];
+document.querySelector("#perc2").innerHTML = mapaPercentuais[1];
+document.querySelector("#perc3").innerHTML = mapaPercentuais[2];
+document.querySelector("#perc4").innerHTML = mapaPercentuais[3];
+document.querySelector("#perc5").innerHTML = mapaPercentuais[4];
+document.querySelector("#perc6").innerHTML = mapaPercentuais[5];
+document.querySelector("#perc7").innerHTML = mapaPercentuais[6];
+document.querySelector("#perc8").innerHTML = mapaPercentuais[7];
+document.querySelector("#perc9").innerHTML = mapaPercentuais[8];
+document.querySelector("#perc10").innerHTML = mapaPercentuais[9];
+document.querySelector("#perc11").innerHTML = mapaPercentuais[10];
+
+
+//for(mapaLength = 11; )
 
 
 
