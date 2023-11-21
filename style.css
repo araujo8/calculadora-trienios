@@ -36,5 +36,14 @@ th {
 
 .mapa, .oculto, .porAnosMesesEDias, .porPeriodoEntreDatas {
     display: none;
+    margin-left: auto;
+    margin-right: auto;
+    
 
+}
+
+.corpo {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
 }
