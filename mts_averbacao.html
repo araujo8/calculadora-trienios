@@ -21,6 +21,7 @@
         </nav>
     <!--</div>-->
 
+    <div class="corpo">
     <h3>MTS com Averbação</h3>
         <br>
         Data de Incorporação: <input type="date" name="incorporacao" id="data"><br><br>
@@ -75,64 +76,22 @@
         <input type="radio" name="base2" id="" checked>365 dias
         <input type="radio" name="base2" id="">366 dias <br><br><br>
 
-        <button type="submit" id="enviar">Contar</button>
+        <button type="submit" onclick="" id="enviar">Contar</button>
+
+    </div>
 
 
         <!-- MAPA DE TEMPO DE SERVIÇO-->
 
     <div class="mapa oculto">
+        <h3>Mapa de Tempo de Serviço</h4>
         <table>
-            <tr>
-                <h3>Mapa de Tempo de Serviço</h4>
-            </tr>
-            <tr>
+            <thead>
                 <th>Data</th>
                 <th>Percentual</th>
-            </tr>
-            <tr id="linha1">
-                <td id="data1"></td>                
-                <td id="perc1"></td>
-            </tr>
-            <tr id="linha2">
-                <td id="data2"></td>
-                <td id="perc2"></td>
-            </tr>
-            <tr id="linha3">
-                <td id="data3"></td>
-                <td id="perc3"></td>
-            </tr>
-            <tr id="linha4">
-                <td id="data4"></td>
-                <td id="perc4"></td>
-            </tr>
-            <tr id="linha5">
-                <td id="data5"></td>
-                <td id="perc5"></td>
-            </tr>
-            <tr id="linha6">
-                <td id="data6"></td>
-                <td id="perc6"></td>
-            </tr>
-            <tr id="linha7">
-                <td id="data7"></td>
-                <td id="perc7"></td>
-            </tr>
-            <tr id="linha8">
-                <td id="data8"></td>
-                <td id="perc8"></td>
-            </tr>
-            <tr id="linha9">
-                <td id="data9"></td>
-                <td id="perc9"></td>
-            </tr>
-            <tr id="linha10">
-                <td id="data10"></td>
-                <td id="perc10"></td>
-            </tr>
-            <tr id="linha11">
-                <td id="data11"></td>
-                <td id="perc11"></td>
-            </tr>
+            </thead>
+            <tbody id="mts">
+        </tbody>
 
         </table>
 

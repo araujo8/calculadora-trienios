@@ -4,24 +4,22 @@ let displayMapa = document.querySelector(".mapa");
 btn.addEventListener("click", function(e) {
     e.preventDefault();
 
-//Pega o input da data inserida.
+//Pega o input da data inserida
     let data = document.querySelector("#data");
 
     
 
-//Transforma o valor em um objeto Date.
+//Transforma o valor em um objeto Date
     const dataIncorp = new Date(data.value);
 
     const timeZoneOffSet = dataIncorp.getTimezoneOffset();
 
     dataIncorp.setMinutes(dataIncorp.getMinutes() + timeZoneOffSet);
-  
-    let dataAtual = new Date();
 
+//Exibe mapa
     if(displayMapa.style.display = "none") {
         displayMapa.style.display = "block";
     }
-
 
 
                 //OCULTAR AS AVERBAÇÕES NÃO SELECIONADAS  
@@ -54,9 +52,6 @@ tipoAverbacao.forEach(function(e){
 });
 
 selecionaAverbacao();
-
-//________________________________________________________________
-
 
 
                     //VARIÁVEIS DOS TIPOS DE AVERBAÇÃO
@@ -103,14 +98,10 @@ for(var faixaPercentual = 12045; faixaPercentual > diasAverbacao; faixaPercentua
 let numTrienios = 11 - cont;
 
 
-//___________________________________________________________________
-
-
-                /*DEFINE DATAS DO MTS CONSIDERANDO O 
-                PERCENTUAL INICIAL E OS DIAS AVERBADOS*/
+                //INSERE DATAS E PERCENTUAIS EM ARRAYS
 
 let mapaDatas = [];  
-let mapaPercentuais = [];              
+let mapaPercentuais = [];            
 
 let cloneIncorp = new Date(dataIncorp.valueOf());
 
@@ -121,11 +112,12 @@ let dataReferencial = new Date(calculoDataReferencial);
 
 if(percentualInicial == 0){
     mapaDatas.push(dataReferencial.toLocaleDateString().valueOf());
+    mapaPercentuais.push(percentualInicial+10);
 
     for(var percentual = percentualInicial + 15; percentual <= 60; percentual+= 5) {
         dataReferencial.setDate(dataReferencial.getDate() + 1095);
-        var dataFormatada = dataReferencial.toLocaleDateString();
-        mapaDatas.push(dataFormatada.valueOf());
+        mapaDatas.push(dataReferencial.toLocaleDateString());
+        mapaPercentuais.push(percentual);
     }
 } else {
 
@@ -139,44 +131,25 @@ if(percentualInicial == 0){
     }
 }
 
-
-console.log(mapaDatas);
-
-console.log(mapaPercentuais);
-
-                            /*INSERE DATAS NO MAPA*/
-
-let td = document.querySelector("td");
-
-document.querySelector("#data1").innerHTML = mapaDatas[0];
-document.querySelector("#data2").innerHTML = mapaDatas[1];
-document.querySelector("#data3").innerHTML = mapaDatas[2];
-document.querySelector("#data4").innerHTML = mapaDatas[3];
-document.querySelector("#data5").innerHTML = mapaDatas[4];
-document.querySelector("#data6").innerHTML = mapaDatas[5];
-document.querySelector("#data7").innerHTML = mapaDatas[6];
-document.querySelector("#data8").innerHTML = mapaDatas[7];
-document.querySelector("#data9").innerHTML = mapaDatas[8];
-document.querySelector("#data10").innerHTML = mapaDatas[9];
-document.querySelector("#data11").innerHTML = mapaDatas[10];
+                    //CRIA TABELA E INSERE DATAS E PERCENTUAIS
 
 
-                        /*INSERE PERCENTUAIS NO MAPA*/
+for (i = 0; i < mapaDatas.length; i++){
+    function addRow(t) {
+        let tabela = document.getElementById(t);
+        let novaLinha = tabela.insertRow();
+        let colunaData = novaLinha.insertCell();
+        let colunaPerc = novaLinha.insertCell();
+        let textoData = document.createTextNode(`${mapaDatas[i]}`);
+        let textoPerc = document.createTextNode(`${mapaPercentuais[i]}%`);
+        colunaData.appendChild(textoData);
+        colunaPerc.appendChild(textoPerc);
+      }
 
-document.querySelector("#perc1").innerHTML = mapaPercentuais[0];
-document.querySelector("#perc2").innerHTML = mapaPercentuais[1];
-document.querySelector("#perc3").innerHTML = mapaPercentuais[2];
-document.querySelector("#perc4").innerHTML = mapaPercentuais[3];
-document.querySelector("#perc5").innerHTML = mapaPercentuais[4];
-document.querySelector("#perc6").innerHTML = mapaPercentuais[5];
-document.querySelector("#perc7").innerHTML = mapaPercentuais[6];
-document.querySelector("#perc8").innerHTML = mapaPercentuais[7];
-document.querySelector("#perc9").innerHTML = mapaPercentuais[8];
-document.querySelector("#perc10").innerHTML = mapaPercentuais[9];
-document.querySelector("#perc11").innerHTML = mapaPercentuais[10];
+      addRow("mts");    
+  }
 
 
-//for(mapaLength = 11; )
 
 
 
